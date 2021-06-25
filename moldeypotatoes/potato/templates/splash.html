@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,13 @@
     <title>Moldey Potatoes</title>
 </head>
 <body>
-    <title>jQuery UI Tabs - Vertical Tabs functionality</title>
+{% include 'components/navbar.html' %}
+{% include 'components/bootstrap.html' %}
+
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" href="{% static 'js/tabs.js' %}">
     
     <div id="tabs">
         <ul>
