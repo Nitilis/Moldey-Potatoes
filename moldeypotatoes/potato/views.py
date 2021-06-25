@@ -5,5 +5,5 @@ from django.contrib import messages
 from .models import *
 
 
-def index(request):
+def splash(request):
     return render(request, 'splash.html')
