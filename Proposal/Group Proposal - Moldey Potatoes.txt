@@ -1,0 +1,19 @@
+Name - Moldey Potatoes
+
+    Project People
+        - Tania Hernandez - 
+        - Jennison Short
+        - Ryan Reynolds 
+
+Content - 
+ 
+    Reviews of entertainment mediums of Games, Movies, and/or books.
+        Comments, likes, and favorites
+        youtube links/imbedding
+        random search function
+
+    Rating scale 1-10
+
+Git Hub link - 
+ 
+    https://github.com/Nitilis/Moldey-Potatoes/settings/access
