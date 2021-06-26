@@ -7,3 +7,6 @@ from .models import *
 
 def splash(request):
     return render(request, 'splash.html')
+
+def loginreg(request):
+    return render(request, 'loginreg.html')
