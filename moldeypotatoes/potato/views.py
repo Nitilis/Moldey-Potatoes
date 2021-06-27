@@ -13,3 +13,6 @@ def loginreg(request):
 
 def infopage(request):
     return render(request, 'infopage.html')
+
+def profile(request):
+    return render(request, 'profile.html')
