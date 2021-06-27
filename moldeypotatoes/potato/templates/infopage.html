@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static 'css/tab.css' %}">
 </head>
 
-<body>
+<body style="background-color:aquamarine;">
     {% include 'components/navbar.html' %}
     {% include 'components/bootstrap.html' %}
     <center><br><br>
@@ -27,10 +27,10 @@
                     <h1>title placeholder</h1>
                 </div>
             </div>
-            <br><br><br>
+            <br><br>
             <div class="row">
                 <div class="col">
-
+                    <div class="card">
                     <p>
                     <div class="d-flex align-items-start">
                         <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist"
@@ -53,21 +53,18 @@
                                 aria-labelledby="v-pills-home-tab">Front Cover here
                             </div>
                             <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
-                                aria-labelledby="v-pills-profile-tab">Reviews Here</div>
+                                aria-labelledby="v-pills-profile-tab">Our Review!</div>
                             <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
-                                aria-labelledby="v-pills-messages-tab">User Comments here
-                                <div><p>
-                                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button"
-                                        aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a>
-                                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2"
-                                        aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button>
-                                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse"
-                                        aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements</button>
-                                </p>
+                                aria-labelledby="v-pills-messages-tab"><h5>Leave your thoughts here</h5><br>
+                                <div>
                                     <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                                            style="height: 100px"></textarea>
-                                        <label for="floatingTextarea2">Comments</label>
+                                        <textarea placeholder="Leave a comment here" style="height: 200px; width: 300px;"></textarea>
+                                        </div><br>
+                                    <div>
+                                        <table class="table">
+                                        <th><h4>Other Potato Comments</h4></tr>
+                                        <td>Load comments here</td>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -78,12 +75,14 @@
                     </div>
                     </p>
                 </div>
+                </div>
                 <div class="col">
                     <div class="card">
                         <div class="card">
-                            <h5 class="card-header"><iframe width="725" height="390"
-                                    src="https://www.youtube.com/embed/ii8Jr2rzXFQ">
-                                </iframe></h5>
+                            <h5 class="card-header">
+                                <iframe width="725" height="390" src="https://www.youtube.com/embed/ii8Jr2rzXFQ">
+                                </iframe>
+                            </h5>
                             <div class="card-body">
                                 <h5 class="card-title">Synopsis</h5>
                                 <p class="card-text">Subject synopsis here.</p>

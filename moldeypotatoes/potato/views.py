@@ -10,3 +10,6 @@ def splash(request):
 
 def loginreg(request):
     return render(request, 'loginreg.html')
+
+def infopage(request):
+    return render(request, 'infopage.html')
