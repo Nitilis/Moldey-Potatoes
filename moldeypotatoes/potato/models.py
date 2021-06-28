@@ -1,8 +1,10 @@
 from django.db import models
 import re
-
 from django.db.models.base import Model
 import bcrypt
+from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
+from django.contrib.contenttypes.models import ContentType
+
 
 class UserManager(models.Manager):
     def register_validation(self,form):
@@ -45,6 +47,7 @@ class Book(models.Model):
     publisher = models.CharField(max_length=50)
     genre = models.CharField(max_length=20)
     release_date = models.DateField()
+    reviews = GenericRelation('Review')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -54,6 +57,7 @@ class Movie(models.Model):
     genre = models.CharField(max_length=20)
     trailer_link = models.URLField()
     release_date = models.DateField()
+    reviews = GenericRelation('Review')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -63,8 +67,16 @@ class Game(models.Model):
     genre = models.CharField(max_length=20)
     trailer_link = models.URLField()
     release_date = models.DateField()
+    reviews = GenericRelation('Review')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-#class Review(models.Model):
-    
+class Review(models.Model):
+    review = models.TextField()
+    score = models.IntegerField()
+    owner = models.ForeignKey('User', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object=GenericForeignKey('content_type','object_id')

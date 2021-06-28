@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import User, Book, Movie, Game
+from .models import User, Book, Movie, Game, Review
 from django.contrib import messages
 import bcrypt
 
@@ -12,9 +12,8 @@ def infopage(request):
 def profile(request):
     return render(request, 'profile.html')
 
-# Create your views here.
 def splash(request):
-  return render(request, 'splash.html')
+    return render(request, 'splash.html')
 
 def create_user(request):
     if request.method == 'POST':
@@ -25,7 +24,7 @@ def create_user(request):
                 messages.error(request,value)
                 return redirect('/login')
         hash_pw = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt()).decode()
-        new_user = Users.objects.create(
+        new_user = User.objects.create(
             first_name = request.POST['first_name'],
             last_name = request.POST['last_name'],
             email = request.POST['email'],
@@ -34,11 +33,11 @@ def create_user(request):
         request.session['logged_user'] = new_user.id
         return redirect('splash.html')
     return redirect('/login')
-    
+
 def login(request):
     if request.method == 'POST':
         errors = {}
-        errors = login_validation(request.POST)
+        errors = User.objects.login_validation(request.POST)
         if len(errors) > 0:
             for key, value in errors.items():
                 messages.error(request, value)
@@ -49,12 +48,8 @@ def login(request):
             if bcrypt.checkpw(request.POST['password'].encode(), logged_user.password.encode()):
                 request.session['logged_user'] = logged_user.id
     return redirect('profile.html')
-  
-  
-  
-  
-  
-  def logout(request):
+
+def logout(request):
     request.session.flush()
     return redirect('placeholder.html')
 
