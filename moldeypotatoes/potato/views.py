@@ -3,9 +3,18 @@ from .models import User, Book, Movie, Game
 from django.contrib import messages
 import bcrypt
 
+def loginreg(request):
+    return render(request, 'loginreg.html')
+
+def infopage(request):
+    return render(request, 'infopage.html')
+
+def profile(request):
+    return render(request, 'profile.html')
+
 # Create your views here.
-def index(request): #?
-return render (request, 'placeholder.html')
+def splash(request):
+  return render(request, 'splash.html')
 
 def create_user(request):
     if request.method == 'POST':
@@ -23,7 +32,7 @@ def create_user(request):
             password = hash_pw,
         )
         request.session['logged_user'] = new_user.id
-        return redirect('/profile')#REDIRECT TO PROFILE OR PLACEHOLDER?
+        return redirect('splash.html')
     return redirect('/login')
     
 def login(request):
@@ -39,7 +48,7 @@ def login(request):
             logged_user = user[0]
             if bcrypt.checkpw(request.POST['password'].encode(), logged_user.password.encode()):
                 request.session['logged_user'] = logged_user.id
-    return redirect('placeholder.html')
+    return redirect('profile.html')
   
   
   
@@ -48,3 +57,4 @@ def login(request):
   def logout(request):
     request.session.flush()
     return redirect('placeholder.html')
+
