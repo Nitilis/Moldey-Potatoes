@@ -58,23 +58,20 @@ def logout(request):
     request.session.flush()
     return redirect('placeholder.html')
 
-def all_games(request, game_id):
+def all_games(request):
     context = {
         'all_games': Game.objects.all(),
-        'current_user': User.objects.get(id=request.session['user_id']),
     }
-    return render(request, 'games.htmnl')
+    return render(request, 'games.html', context)
 
-def all_books(request, game_id):
+def all_books(request):
     context = {
-        'all_books': Game.objects.all(),
-        'current_user': User.objects.get(id=request.session['user_id']),
+        'all_books': Book.objects.all(),
     }
-    return render(request, 'books.htmnl')
+    return render(request, 'books.html', context)
 
-def all_movies(request, game_id):
+def all_movies(request):
     context = {
-        'all_movies': Game.objects.all(),
-        'current_user': User.objects.get(id=request.session['user_id']),
+        'all_movies': Movie.objects.all(),
     }
-    return render(request, 'movies.htmnl')
+    return render(request, 'movies.html', context)
