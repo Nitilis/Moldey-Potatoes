@@ -42,7 +42,7 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
 
-
+    def __str__(self):
         return self.email
 
 
@@ -96,5 +96,4 @@ class Review(models.Model):
     content_object=GenericForeignKey('content_type','object_id')
 
     def __str__(self):
-
         return self.object_id
