@@ -13,5 +13,4 @@ urlpatterns = [
     path('all_games', views.all_games, name='games'), 
     path('all_books', views.all_books, name='games'),
     path('all_movies', views.all_movies, name='games'),
-
 ]
