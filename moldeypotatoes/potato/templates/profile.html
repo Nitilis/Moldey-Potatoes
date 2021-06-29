@@ -16,10 +16,35 @@
 <div class="container px-4">
     <div class="row gx-5">
         <div class="col align-self-start">
-            <div class="p-3 border bg-light">Profile Name, pic</div> 
+            <div class="p-3 border bg-light"><div class="card" style="width: 18rem;">
+                <img src="" class="card-img-top" alt="User uploaded Image">
+                <div class="card-body">
+                    <h2><p class="card-text">{{user.user_name}}'s Profile!</p></h2>
+                </div>
+            </div></div> 
         </div>
         <div class="col-6  align-self-end">
-            <div class="p-3 border bg-light">Profile Information</div>
+            <div class="p-3 border bg-light">
+                <table class="table table-success table-striped">
+                    <thead>
+                        <tr><h5>Profile Information</h5></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Email</th>
+                            <td>{{user.email}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Name</th>
+                            <td>{{user.first_name}} {{user.last_name}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Date Joined</th>
+                            <td>{{created_at}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 <br><br>
@@ -34,7 +59,7 @@
         <div class="p-3 border bg-light">Liked items</div>
     </div>
     <div class="col">
-        <div class="p-3 border bg-light">Comments</div>
+        <div class="p-3 border bg-light">Reviews</div>
     </div>
 </div>
 <!-- --- -->
