@@ -33,6 +33,7 @@ class UserManager(models.Manager):
         return errors
 
 class User(models.Model):
+    user_name = models.CharField(max_length=45)
     first_name = models.CharField(max_length=45)
     last_name = models.CharField(max_length=45)
     email = models.CharField(max_length=45)
@@ -40,6 +41,9 @@ class User(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
+
+    def __str__(self):
+        return self.first_name
 
 class Book(models.Model):
     title = models.CharField(max_length=50)
@@ -51,6 +55,9 @@ class Book(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.title
+
 class Movie(models.Model):
     title = models.CharField(max_length=50)
     director = models.CharField(max_length=50)
@@ -60,6 +67,9 @@ class Movie(models.Model):
     reviews = GenericRelation('Review')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
 
 class Game(models.Model):
     title = models.CharField(max_length=50)
@@ -71,6 +81,9 @@ class Game(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.title
+
 class Review(models.Model):
     review = models.TextField()
     score = models.IntegerField()
@@ -80,3 +93,6 @@ class Review(models.Model):
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
     content_object=GenericForeignKey('content_type','object_id')
+
+    def __str__(self):
+        return self.owner
