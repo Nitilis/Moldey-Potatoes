@@ -7,9 +7,13 @@ def loginreg(request):
     return render(request, 'loginreg.html')
 
 def infopage(request):
+    if "user_id" not in request.session:
+        return redirect('/')
     return render(request, 'infopage.html')
 
 def profile(request):
+    if "user_id" not in request.session:
+        return redirect('/')
     return render(request, 'profile.html')
 
 def splash(request):
@@ -54,3 +58,23 @@ def logout(request):
     request.session.flush()
     return redirect('placeholder.html')
 
+def all_games(request, game_id):
+    context = {
+        'all_games': Game.objects.all(),
+        'current_user': User.objects.get(id=request.session['user_id']),
+    }
+    return render(request, 'games.htmnl')
+
+def all_books(request, game_id):
+    context = {
+        'all_books': Game.objects.all(),
+        'current_user': User.objects.get(id=request.session['user_id']),
+    }
+    return render(request, 'books.htmnl')
+
+def all_movies(request, game_id):
+    context = {
+        'all_movies': Game.objects.all(),
+        'current_user': User.objects.get(id=request.session['user_id']),
+    }
+    return render(request, 'movies.htmnl')

@@ -43,7 +43,7 @@ class User(models.Model):
     objects = UserManager()
 
     def __str__(self):
-        return self.first_name
+        return self.email
 
 class Book(models.Model):
     title = models.CharField(max_length=50)
@@ -95,4 +95,4 @@ class Review(models.Model):
     content_object=GenericForeignKey('content_type','object_id')
 
     def __str__(self):
-        return self.owner
+        return self.object_id
