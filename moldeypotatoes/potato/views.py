@@ -25,6 +25,7 @@ def create_user(request):
                 return redirect('/login')
         hash_pw = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt()).decode()
         new_user = User.objects.create(
+            user_name= request.POST['user_name'],
             first_name = request.POST['first_name'],
             last_name = request.POST['last_name'],
             email = request.POST['email'],
