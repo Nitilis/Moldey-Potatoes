@@ -23,8 +23,8 @@ class UserManager(models.Manager):
             errors['used'] = 'Email already in use'
         if len(form['password']) < 6:
             errors['password'] = 'Password should be 6 characters long'
-        elif form['password'] != form['confirmpw']:
-            errors['confirmpw'] = 'Passwords do not match'
+        # elif form['password'] != form['confirmpw']:
+        #     errors['confirmpw'] = 'Passwords do not match'
         return errors
     
     def login_validation(self,form):
