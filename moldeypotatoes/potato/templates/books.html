@@ -17,6 +17,7 @@
     <center><br><br>
         {% for book in all_books %}
         <div class="card" style="width: 18rem;">
+
             <img src="{{book.cover_image.url}}" class="card-img-top" alt="{{book.cover_image.url}}">
             <div class="card-body">
                 <h5 class="card-title">{{book.title}}</h5>
