@@ -17,6 +17,7 @@
     <center><br><br>
     {% for game in all_games %}
     <div class="card" style="width: 18rem;">
+
         <img src="{{game.cover_image.url}}" class="card-img-top" alt="{{game.cover_image.url}}">
         <div class="card-body">
             <h5 class="card-title">{{game.title}}</h5>

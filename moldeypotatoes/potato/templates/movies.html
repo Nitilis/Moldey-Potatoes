@@ -17,6 +17,7 @@
     <center><br><br>
         {% for movie in all_movies %}
         <div class="card" style="width: 18rem;">
+
             <img src="{{movie.cover_image.url}}" class="card-img-top" alt="{{movie.cover_image.url}}">
             <div class="card-body">
                 <h5 class="card-title">{{movie.title}}</h5>

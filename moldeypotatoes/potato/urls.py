@@ -1,5 +1,4 @@
 from django.urls import path
-from django.urls import path
 from . import views
 from django.conf.urls.static import static
 from django.conf import settings
@@ -18,3 +17,4 @@ urlpatterns = [
     path('movie_info', views.movie_info, name='movie_info'),
     path('movie_info', views.movie_info, name='movie_info'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
