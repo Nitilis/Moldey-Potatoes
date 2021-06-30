@@ -9,10 +9,20 @@ def loginreg(request):
 def profile(request):
     if "user_id" not in request.session:
         return redirect('/')
-    return render(request, 'profile.html')
+    context={
+        'user' : User.objects.get(id=request.session['user_id']) 
+    }
+    return render(request, 'profile.html',context)
 
 def splash(request):
-    return render(request, 'splash.html')
+    if 'user_id' in request.session:
+        user_logged_in = True
+    else:
+        user_logged_in = False
+    context = {
+        'logged_in' : user_logged_in
+    }
+    return render(request, 'splash.html',context)
 
 def create_user(request):
     if request.method == 'POST':
