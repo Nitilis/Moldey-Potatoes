@@ -30,9 +30,8 @@ def create_user(request):
                 email = request.POST['email'],
                 password = hash_pw)
             request.session['logged_user'] = new_user.id
-            return redirect('/')
-    else:
-        return redirect('/loginreg')
+            return redirect('/profile')
+    return redirect('/loginreg')
 
 def login(request):
     if request.method == 'POST':
@@ -70,27 +69,27 @@ def all_movies(request):
     }
     return render(request, 'movies.html', context)
 
-def movie_info(request):
-    if "user_id" not in request.session:
-        return redirect('/')
+def movie_info(request, movie_id):
+    # if "user_id" not in request.session:
+    #     return redirect('/')
     context = {
-        'movie' : Movie.objects.get(),
+        'movie' : Movie.objects.get(id=movie_id),
     }
-    return render(request, 'movie_info.html', context)
+    return render(request, 'movieinfo.html', context)
 
-def game_info(request):
-    if "user_id" not in request.session:
-        return redirect('/')
+def game_info(request, game_id):
+    # if "user_id" not in request.session:
+    #     return redirect('/')
     context = {
-        'game': Game.objects.get(),
+        'game': Game.objects.get(id=game_id),
     }
-    return render(request, 'infopage.html', context)
+    return render(request, 'gameinfo.html', context)
 
 
-def book_info(request):
-    if "user_id" not in request.session:
-        return redirect('/')
+def book_info(request, book_id):
+    # if "user_id" not in request.session:
+    #     return redirect('/')
     context = {
-        'book': Book.objects.get(),
+        'book': Book.objects.get(id=book_id),
     }
-    return render(request, 'infopage.html', context)
+    return render(request, 'bookinfo.html', context)

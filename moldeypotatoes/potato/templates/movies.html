@@ -23,7 +23,7 @@
 
             <img src="{{movie.cover_image.url}}" class="card-img-top" alt="{{movie.cover_image.url}}">
             <div class="card-body">
-                <h5 class="card-title"><a href="#" class="btn btn-primary">{{movie.title}}</a></h5>
+                <h5 class="card-title"><a href="{% url 'movie_info' movie.id %}" class="btn btn-primary">{{movie.title}}</a></h5>
                 <p class="card-text">
                 <ul class="list-group">
                     <li class="list-group-item"><b>Director:</b> {{movie.director}}</li>

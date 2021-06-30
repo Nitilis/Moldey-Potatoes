@@ -12,8 +12,8 @@ urlpatterns = [
     path('all_games', views.all_games, name='games'), 
     path('all_books', views.all_books, name='games'),
     path('all_movies', views.all_movies, name='games'),
-    path('book_info', views.book_info, name='book_info'),
-    path('game_info', views.game_info, name='game_info'),
-    path('movie_info', views.movie_info, name='movie_info'),
+    path('book_info/<book_id>', views.book_info, name='book_info'),
+    path('game_info/<game_id>', views.game_info, name='game_info'),
+    path('movie_info/<movie_id>', views.movie_info, name='movie_info'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
