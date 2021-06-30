@@ -36,6 +36,7 @@ class User(models.Model):
     user_name = models.CharField(max_length=45)
     first_name = models.CharField(max_length=45)
     last_name = models.CharField(max_length=45)
+    profile_image = models.ImageField(null=True, blank=True, upload_to="images/")
     email = models.CharField(max_length=45)
     password = models.CharField(max_length=60)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -48,6 +49,7 @@ class User(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length=50)
+    cover_image = models.ImageField(null=True, blank=True, upload_to="images/")
     author = models.CharField(max_length=50)
     publisher = models.CharField(max_length=50)
     genre = models.CharField(max_length=20)
@@ -61,6 +63,7 @@ class Book(models.Model):
 
 class Movie(models.Model):
     title = models.CharField(max_length=50)
+    cover_image = models.ImageField(null=True, blank=True, upload_to="images/")
     director = models.CharField(max_length=50)
     genre = models.CharField(max_length=20)
     trailer_link = models.URLField()
@@ -74,6 +77,7 @@ class Movie(models.Model):
 
 class Game(models.Model):
     title = models.CharField(max_length=50)
+    cover_image = models.ImageField(null=True, blank=True, upload_to="images/")
     creator = models.CharField(max_length=50)
     genre = models.CharField(max_length=20)
     trailer_link = models.URLField()
