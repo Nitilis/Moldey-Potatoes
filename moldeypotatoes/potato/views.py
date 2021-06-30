@@ -75,3 +75,9 @@ def all_movies(request):
         'all_movies': Movie.objects.all(),
     }
     return render(request, 'movies.html', context)
+
+def movie_info(request):
+    context = {
+        'movie' : Movie.objects.get(),
+    }
+    return render(request, 'movie_info.html', context)
