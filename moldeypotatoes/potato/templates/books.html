@@ -14,15 +14,16 @@
 <body style="background-color:aquamarine;">
     {% include 'components/navbar.html' %}
     {% include 'components/bootstrap.html' %}
-    <center><br><br>
+    <center><br><br>\
+<div class="container">>
 <div class="row">
     {% for book in all_books %}
-    <div class="col-sm-6">
+    <div class="col-4">
         <div class="card" style="width: 18rem;">
 
             <img src="{{book.cover_image.url}}" class="card-img-top" alt="{{book.cover_image.url}}">
             <div class="card-body">
-                <h5 class="card-title">{{book.title}}</h5>
+                <h5 class="card-title"><a href="#" class="btn btn-primary">{{book.title}}</a></h5>
                 <p class="card-text">
                 <ul class="list-group">
                     <li class="list-group-item"><b>Author:</b> {{book.author}}</li>
@@ -30,13 +31,13 @@
                     <li class="list-group-item"><b>Genre:</b> {{book.genre}}</li>
                 </ul>
                 </p>
-                <a href="#" class="btn btn-primary">{{book.title}}</a>
+                
                 
             </div>
         </div>
     </div>
     {% endfor %}
-</div>
+</div></div
 </center>
 </body>
 
