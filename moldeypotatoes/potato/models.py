@@ -11,6 +11,8 @@ class UserManager(models.Manager):
         errors = {}
         EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
         used_email = User.objects.filter(email = form['email'])
+        if len(form['user_name']) < 3:
+            errors['user_name'] = 'Invalid User Name'
         if len(form['first_name']) < 1:
             errors['first_name'] = 'Invalid First Name'
         if len(form['last_name']) < 1:
