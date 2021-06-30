@@ -24,7 +24,7 @@
 
             <img src="{{game.cover_image.url}}" class="card-img-top" alt="{{game.cover_image.url}}">
             <div class="card-body">
-                <h5 class="card-title"><a href="#" class="btn btn-primary">{{game.title}}</a></h5>
+                <h5 class="card-title"><a href="{% url 'game_info' game.id %}" class="btn btn-primary">{{game.title}}</a></h5>
                 <p class="card-text">
                     <ul class="list-group">
                         <li class="list-group-item"><b>Creator:</b> {{game.creator}}</li>
