@@ -15,22 +15,26 @@
     {% include 'components/navbar.html' %}
     {% include 'components/bootstrap.html' %}
     <center><br><br>
+<div class="row">
     {% for game in all_games %}
-    <div class="card" style="width: 18rem;">
+    <div class="col-sm-6">
+        <div class="card" style="width: 18rem;">
 
-        <img src="{{game.cover_image.url}}" class="card-img-top" alt="{{game.cover_image.url}}">
-        <div class="card-body">
-            <h5 class="card-title">{{game.title}}</h5>
-            <p class="card-text">
-                <ul class="list-group">
-                    <li class="list-group-item"><b>Creator:</b> {{game.creator}}</li>
-                    <li class="list-group-item"><b>Genre: </b>{{game.genre}}</li>
-                </ul>
-            </p>
-            <a href="#" class="btn btn-primary">{{game.title}}</a>
-    {% endfor %}
+            <img src="{{game.cover_image.url}}" class="card-img-top" alt="{{game.cover_image.url}}">
+            <div class="card-body">
+                <h5 class="card-title">{{game.title}}</h5>
+                <p class="card-text">
+                    <ul class="list-group">
+                        <li class="list-group-item"><b>Creator:</b> {{game.creator}}</li>
+                        <li class="list-group-item"><b>Genre: </b>{{game.genre}}</li>
+                    </ul>
+                </p>
+                <a href="#" class="btn btn-primary">{{game.title}}</a>
+            </div>
         </div>
     </div>
+    {% endfor %}
+</div>
 </center>
 </body>
 </html>

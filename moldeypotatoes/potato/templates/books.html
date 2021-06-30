@@ -15,7 +15,9 @@
     {% include 'components/navbar.html' %}
     {% include 'components/bootstrap.html' %}
     <center><br><br>
-        {% for book in all_books %}
+<div class="row">
+    {% for book in all_books %}
+    <div class="col-sm-6">
         <div class="card" style="width: 18rem;">
 
             <img src="{{book.cover_image.url}}" class="card-img-top" alt="{{book.cover_image.url}}">
@@ -29,10 +31,13 @@
                 </ul>
                 </p>
                 <a href="#" class="btn btn-primary">{{book.title}}</a>
-                {% endfor %}
+                
             </div>
         </div>
-    </center>
+    </div>
+    {% endfor %}
+</div>
+</center>
 </body>
 
 </html>
