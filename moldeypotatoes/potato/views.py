@@ -7,8 +7,8 @@ def loginreg(request):
     return render(request, 'loginreg.html')
 
 def profile(request):
-    if "user_id" not in request.session:
-        return redirect('/')
+    # if "user_id" not in request.session:
+    #     return redirect('/')
     return render(request, 'profile.html')
 
 def splash(request):
