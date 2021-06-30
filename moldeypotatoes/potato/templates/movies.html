@@ -15,12 +15,15 @@
     {% include 'components/navbar.html' %}
     {% include 'components/bootstrap.html' %}
     <center><br><br>
-        {% for movie in all_movies %}
+<div class="container">
+<div class="row">
+    {% for movie in all_movies %}
+    <div class="col-4">
         <div class="card" style="width: 18rem;">
 
             <img src="{{movie.cover_image.url}}" class="card-img-top" alt="{{movie.cover_image.url}}">
             <div class="card-body">
-                <h5 class="card-title">{{movie.title}}</h5>
+                <h5 class="card-title"><a href="#" class="btn btn-primary">{{movie.title}}</a></h5>
                 <p class="card-text">
                 <ul class="list-group">
                     <li class="list-group-item"><b>Director:</b> {{movie.director}}</li>
@@ -28,11 +31,13 @@
                     <li class="list-group-item"><b>Genre:</b> {{movie.genre}}</li>
                 </ul>
                 </p>
-                <a href="#" class="btn btn-primary">{{movie.title}}</a>
-                {% endfor %}
+                
             </div>
         </div>
-    </center>
+    </div>
+    {% endfor %}
+</div></div>
+</center>
 </body>
 
 </html>

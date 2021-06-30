@@ -6,11 +6,6 @@ import bcrypt
 def loginreg(request):
     return render(request, 'loginreg.html')
 
-def infopage(request):
-    if "user_id" not in request.session:
-        return redirect('/')
-    return render(request, 'infopage.html')
-
 def profile(request):
     if "user_id" not in request.session:
         return redirect('/')
@@ -74,3 +69,28 @@ def all_movies(request):
         'all_movies': Movie.objects.all(),
     }
     return render(request, 'movies.html', context)
+
+def movie_info(request):
+    if "user_id" not in request.session:
+        return redirect('/')
+    context = {
+        'movie' : Movie.objects.get(),
+    }
+    return render(request, 'movie_info.html', context)
+
+def game_info(request):
+    if "user_id" not in request.session:
+        return redirect('/')
+    context = {
+        'game': Game.objects.get(),
+    }
+    return render(request, 'infopage.html', context)
+
+
+def book_info(request):
+    if "user_id" not in request.session:
+        return redirect('/')
+    context = {
+        'book': Book.objects.get(),
+    }
+    return render(request, 'infopage.html', context)
