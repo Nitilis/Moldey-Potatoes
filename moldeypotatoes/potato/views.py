@@ -9,10 +9,12 @@ def loginreg(request):
 def profile(request):
     if "user_id" not in request.session:
         return redirect('/')
-    context={
-        'user' : User.objects.get(id=request.session['user_id']) 
+
+    context= {
+        'user' : User.objects.get(id=request.session['user_id']),
     }
-    return render(request, 'profile.html',context)
+    return render(request, 'profile.html', context)
+
 
 def splash(request):
     if 'user_id' in request.session:
@@ -53,7 +55,7 @@ def login(request):
         else:
             logged_user = User.objects.filter(email = request.POST['email'])
             request.session['user_id'] = logged_user[0].id
-            return redirect('/')
+            return redirect('profile.html')
     else:
         return redirect('/loginreg')
 
@@ -80,16 +82,18 @@ def all_movies(request):
     return render(request, 'movies.html', context)
 
 def movie_info(request, movie_id):
-    # if "user_id" not in request.session:
-    #     return redirect('/')
+    if "user_id" not in request.session:
+        return redirect('/')
     context = {
         'movie' : Movie.objects.get(id=movie_id),
     }
     return render(request, 'movieinfo.html', context)
 
 def game_info(request, game_id):
-    # if "user_id" not in request.session:
-    #     return redirect('/')
+
+    if "user_id" not in request.session:
+        return redirect('/')
+
     context = {
         'game': Game.objects.get(id=game_id),
     }
@@ -97,8 +101,13 @@ def game_info(request, game_id):
 
 
 def book_info(request, book_id):
+
+    if "user_id" not in request.session:
+        return redirect('/')
+
     # if "user_id" not in request.session:
     #     return redirect('/')
+
     context = {
         'book': Book.objects.get(id=book_id),
     }
